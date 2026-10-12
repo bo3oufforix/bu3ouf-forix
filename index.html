@@ -1,155 +1,75 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111012">
 <title>bu3ouf forix | Market Signals</title>
 <style>
-:root {
-  --bg:#111012; --panel:#1c191b; --wine:#761c29;
-  --cream:#f4eee5; --muted:#b8adb0; --line:#38282c;
-}
-* { box-sizing:border-box; }
-body {
-  margin:0; background:var(--bg); color:var(--cream);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
-header {
-  padding:22px 5%; display:flex; align-items:center;
-  justify-content:space-between; gap:12px; flex-wrap:wrap;
-  border-bottom:1px solid var(--line);
-}
-.brand { font-size:23px; font-weight:800; }
-.brand span { color:#c76b77; }
-nav { display:flex; gap:16px; flex-wrap:wrap; }
-a { color:var(--cream); text-decoration:none; }
-button {
-  background:var(--wine); color:white; border:1px solid #a94a57;
-  border-radius:9px; padding:11px 15px; font-size:14px;
-  cursor:pointer;
-}
-.hero { padding:60px 6% 40px; text-align:center; }
-.eyebrow { color:#d18b94; letter-spacing:2px; font-size:12px; }
-h1 { font-size:clamp(32px,7vw,58px); margin:18px 0; }
-h1 span { color:#c76b77; }
-p { color:var(--muted); line-height:1.9; }
-.hero p { max-width:620px; margin:0 auto 24px; }
-.wrap { width:90%; max-width:1100px; margin:25px auto 60px; }
-.section-title { font-size:23px; margin:38px 0 18px; }
-.grid {
- display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:14px;
-}
-.card {
- background:var(--panel); border:1px solid var(--line);
- border-radius:14px; padding:20px;
-}
-.label { color:var(--muted); font-size:13px; }
-.value { font-size:22px; font-weight:750; margin-top:12px; }
-.tag {
- display:inline-block; color:#e8b7bd; background:#412027;
- border-radius:6px; padding:5px 8px; font-size:11px;
-}
-table { width:100%; border-collapse:collapse; font-size:13px; }
-th,td { padding:14px 8px; text-align:right; border-bottom:1px solid var(--line); }
-th { color:#d18b94; }
-.notice { border-right:3px solid #c76b77; margin-top:18px; padding:12px; }
-footer { text-align:center; padding:28px; border-top:1px solid var(--line); }
-[dir="ltr"] th,[dir="ltr"] td { text-align:left; }
-@media(max-width:480px) {
- header { padding:18px 5%; }
- nav { gap:12px; font-size:13px; }
- .hero { padding-top:42px; }
- th,td { padding:12px 4px; font-size:12px; }
-}
+:root{--bg:#111012;--panel:#1c191b;--wine:#761c29;--cream:#f4eee5;--muted:#b8adb0;--line:#38282c;--green:#39c98a;--red:#ff6875}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}header{padding:22px 5%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}h1{font-size:23px;margin:0}h1 span{color:#c77677}.tag{font-size:12px;color:var(--muted);margin-top:5px}.wrap{max-width:900px;margin:auto;padding:22px 16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}h2{font-size:18px;margin:0 0 14px}p{color:var(--muted);line-height:1.7}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}label{display:block;font-size:13px;color:var(--muted);margin:10px 0 6px}input,select,textarea{width:100%;background:#100e10;color:var(--cream);border:1px solid #49343a;border-radius:10px;padding:12px;font:inherit}textarea{min-height:80px}button{border:0;border-radius:10px;padding:12px 15px;background:var(--wine);color:white;font:inherit;font-weight:700;cursor:pointer;margin-top:10px}button.secondary{background:#33282c;border:1px solid #59434a}button:disabled{opacity:.5}.status{padding:10px 12px;border-radius:10px;background:#292326;color:var(--muted);margin:10px 0;line-height:1.6}.signal{border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:10px}.signalhead{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}.buy{color:var(--green);font-weight:800}.sell{color:var(--red);font-weight:800}.small{font-size:12px;color:var(--muted)}.hidden{display:none!important}footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">bu3ouf <span>forix</span></div>
-  <nav>
-    <a href="#markets" data-en="Markets" data-ar="الأسواق">الأسواق</a>
-    <a href="#signals" data-en="Signals" data-ar="الإشارات">الإشارات</a>
-    <a href="#about" data-en="About" data-ar="عن المنصة">عن المنصة</a>
-  </nav>
-  <button id="lang" type="button">English</button>
-</header>
-
-<section class="hero">
-  <div class="eyebrow">MARKET ANALYSIS • TRADING SIGNALS</div>
-  <h1 data-ar="رؤيتك للسوق تبدأ من <span>هنا</span>"
-       data-en="Your market vision starts <span>here</span>">
-    رؤيتك للسوق تبدأ من <span>هنا</span>
-  </h1>
-  <p data-ar="منصة لتحليل الأسواق المالية ومتابعة إشارات التداول. نعمل على ربط بيانات السوق الحقيقية بمحرك إشارات قابل للاختبار."
-     data-en="A platform for financial market analysis and trading signals. We are building a connection to real market data and a testable signal engine.">
-    منصة لتحليل الأسواق المالية ومتابعة إشارات التداول. نعمل على ربط بيانات السوق الحقيقية بمحرك إشارات قابل للاختبار.
-  </p>
-  <a href="#markets"><button data-ar="استكشف المنصة" data-en="Explore platform">استكشف المنصة</button></a>
-</section>
-
+<header><div><h1><span>bu3ouf</span> forix</h1><div class="tag">منصة إشارات التداول — وصول خاص للأعضاء</div></div><button id="logoutBtn" class="secondary hidden">تسجيل الخروج</button></header>
 <main class="wrap">
-  <div class="section-title" id="markets" data-ar="الأسواق التي نتابعها" data-en="Markets we follow">الأسواق التي نتابعها</div>
-  <div class="grid">
-    <div class="card"><div class="label">CRYPTO</div><div class="value">₿</div><p data-ar="العملات الرقمية" data-en="Cryptocurrencies">العملات الرقمية</p></div>
-    <div class="card"><div class="label">FOREX</div><div class="value">€ / $</div><p data-ar="أزواج العملات" data-en="Currency pairs">أزواج العملات</p></div>
-    <div class="card"><div class="label">GOLD</div><div class="value">Au</div><p data-ar="الذهب والسلع" data-en="Gold & commodities">الذهب والسلع</p></div>
-    <div class="card"><div class="label">STOCKS</div><div class="value">↗</div><p data-ar="الأسهم والمؤشرات" data-en="Stocks & indices">الأسهم والمؤشرات</p></div>
-  </div>
-
-  <div class="section-title" data-ar="نظرة على الإشارات" data-en="Signal overview">نظرة على الإشارات</div>
-  <div class="card" id="signals">
-    <span class="tag" data-ar="واجهة تجريبية" data-en="DEMO INTERFACE">واجهة تجريبية</span>
-    <p data-ar="لم يتم ربط بيانات السوق بعد. الأرقام التالية أمثلة شكلية وليست أسعاراً حقيقية أو توصيات تداول."
-       data-en="Market data is not connected yet. The following figures are illustrative, not live prices or trading recommendations.">
-       لم يتم ربط بيانات السوق بعد. الأرقام التالية أمثلة شكلية وليست أسعاراً حقيقية أو توصيات تداول.
-    </p>
-    <table>
-      <thead><tr>
-        <th data-ar="الأصل" data-en="Asset">الأصل</th>
-        <th data-ar="السوق" data-en="Market">السوق</th>
-        <th data-ar="الحالة" data-en="Status">الحالة</th>
-      </tr></thead>
-      <tbody>
-        <tr><td>BTC/USD</td><td>Crypto</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
-        <tr><td>EUR/USD</td><td>Forex</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
-        <tr><td>XAU/USD</td><td>Gold</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section-title" id="about" data-ar="عن bu3ouf forix" data-en="About bu3ouf forix">عن bu3ouf forix</div>
-  <div class="card">
-    <p data-ar="هدفنا بناء منصة واضحة لتحليل الأسواق وعرض إشارات قابلة للتحقق، مع توثيق النتائج والمخاطر. لا نضمن الأرباح ولا نعرض المحاكاة على أنها تداول حقيقي."
-       data-en="Our goal is a transparent platform for market analysis and verifiable signals, with documented results and risk disclosure. Profits are not guaranteed, and simulations are never presented as live trading.">
-       هدفنا بناء منصة واضحة لتحليل الأسواق وعرض إشارات قابلة للتحقق، مع توثيق النتائج والمخاطر. لا نضمن الأرباح ولا نعرض المحاكاة على أنها تداول حقيقي.
-    </p>
-    <div class="notice" data-ar="تنبيه: التداول ينطوي على مخاطر وقد يؤدي إلى خسارة رأس المال."
-         data-en="Risk notice: Trading involves risk and may result in loss of capital.">
-      تنبيه: التداول ينطوي على مخاطر وقد يؤدي إلى خسارة رأس المال.
-    </div>
-  </div>
-</main>
-
-<footer>© 2026 bu3ouf forix · Market Signals</footer>
-
-<script>
-const langButton = document.getElementById("lang");
-let english = false;
-langButton.addEventListener("click", () => {
-  english = !english;
-  document.documentElement.lang = english ? "en" : "ar";
-  document.documentElement.dir = english ? "ltr" : "rtl";
-  document.querySelectorAll("[data-en]").forEach(el => {
-    el.innerHTML = el.dataset[english ? "en" : "ar"];
-  });
-  document.querySelectorAll("[data-ar]").forEach(el => {
-    el.innerHTML = el.dataset[english ? "en" : "ar"];
-  });
-  langButton.textContent = english ? "العربية" : "English";
-});
+<section class="panel"><h2>أهلاً بك</h2><p>سجّل الدخول أو أنشئ حساباً. عرض الإشارات يتطلب اشتراكاً مفعّلاً من الإدارة. إشارات التداول ليست ضماناً للربح وتنطوي على مخاطر.</p><div id="notice" class="status">يلزم إعداد رابط Supabase والمفتاح العام في الكود قبل تفعيل الاتصال.</div></section>
+<section class="panel" id="authPanel"><h2>تسجيل الدخول / حساب جديد</h2><div class="grid"><div><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"></div><div><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" placeholder="8 أحرف على الأقل"></div></div><button id="signupBtn">إنشاء حساب</button> <button id="loginBtn" class="secondary">تسجيل الدخول</button></section>
+<section class="panel hidden" id="memberPanel"><h2>حسابي والاشتراك</h2><div id="accountStatus" class="status"></div><button id="requestBtn">طلب تفعيل الاشتراك</button><h2 style="margin-top:24px">إشارات التداول</h2><div id="signals"><p>سجّل الدخول وفعّل الاشتراك لعرض الإشارات.</p></div></section>
+<section class="panel hidden" id="adminPanel"><h2>لوحة الإدارة — إضافة إشارة</h2><p>تظهر هذه اللوحة فقط للحساب الذي يحمل دور admin في قاعدة البيانات.</p><div class="grid"><div><label for="market">السوق</label><select id="market"><option>Forex</option><option>Crypto</option><option>Gold</option><option>Indices</option><option>Stocks</option></select></div><div><label for="symbol">الرمز</label><input id="symbol" placeholder="مثال: EURUSD"></div><div><label for="direction">الاتجاه</label><select id="direction"><option value="BUY">شراء BUY</option><option value="SELL">بيع SELL</option></select></div><div><label for="entry">سعر الدخول</label><input id="entry" type="number" step="any" placeholder="اختياري"></div><div><label for="sl">وقف الخسارة</label><input id="sl" type="number" step="any" placeholder="اختياري"></div><div><label for="tp">جني الأرباح</label><input id="tp" type="number" step="any" placeholder="اختياري"></div></div><label for="notes">ملاحظات / تحليل</label><textarea id="notes" placeholder="اكتب تفاصيل الإشارة ومصدرها"></textarea><button id="addSignalBtn">نشر الإشارة</button></section>
+</main><footer>bu3ouf forix · تداول بمسؤولية</footer>
+<script type="module">
+/* إعداد مطلوب قبل الاستخدام:
+   1) ضع Project URL مكان YOUR_SUPABASE_URL
+   2) ضع Publishable key مكان YOUR_SUPABASE_PUBLISHABLE_KEY
+   لا تضع أبداً secret أو service_role key في هذا الملف.
+*/
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+const SUPABASE_PUBLISHABLE_KEY = 'YOUR_SUPABASE_PUBLISHABLE_KEY';
+const configured = SUPABASE_URL.startsWith('https://') && !SUPABASE_URL.includes('YOUR_') && !SUPABASE_PUBLISHABLE_KEY.includes('YOUR_') && SUPABASE_PUBLISHABLE_KEY.length > 20;
+const $ = id => document.getElementById(id);
+const notice = (msg, bad=false) => { $('notice').textContent=msg; $('notice').style.color=bad?'#ff9ba4':'var(--muted)'; };
+let supabase = null, currentUser = null;
+if(configured){supabase=createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);notice('الاتصال مُعدّ. يمكنك تسجيل الدخول.');}
+else { $('loginBtn').disabled=true; $('signupBtn').disabled=true; }
+function show(id,yes){$(id).classList.toggle('hidden',!yes)}
+function val(id){return $(id).value.trim()}
+async function ensureProfile(user){
+  const {data:existing,error:readError}=await supabase.from('profiles').select('id,display_name,role').eq('id',user.id).maybeSingle();
+  if(readError) throw readError;
+  if(!existing){
+    const {error}=await supabase.from('profiles').insert({id:user.id,display_name:user.email?.split('@')[0]||'Member',role:'member'});
+    if(error) throw error;
+    return {id:user.id,role:'member'};
+  }
+  return existing;
+}
+async function refresh(){
+  const {data:{user},error}=await supabase.auth.getUser();
+  if(error) throw error;
+  currentUser=user;
+  show('authPanel',!user);show('memberPanel',!!user);show('logoutBtn',!!user);
+  if(!user){show('adminPanel',false);return;}
+  const profile=await ensureProfile(user);
+  show('adminPanel',profile.role==='admin');
+  const {data:membership,error:memErr}=await supabase.from('memberships').select('status,expires_at,created_at').eq('user_id',user.id).order('created_at',{ascending:false}).limit(1).maybeSingle();
+  if(memErr) throw memErr;
+  $('accountStatus').textContent=membership?`الحساب: ${user.email} — حالة الاشتراك: ${membership.status}${membership.expires_at?' — ينتهي: '+new Date(membership.expires_at).toLocaleDateString('ar'):''}`:`الحساب: ${user.email} — لا يوجد طلب اشتراك بعد.`;
+  const active=membership && membership.status==='active' && (!membership.expires_at || new Date(membership.expires_at)>new Date());
+  $('requestBtn').disabled=!!(membership && membership.status==='pending');
+  if(!active){$('signals').innerHTML='<p>الإشارات متاحة للأعضاء ذوي الاشتراك المفعّل فقط.</p>';return;}
+  const {data:signals,error:sigErr}=await supabase.from('trading_signals').select('*').order('created_at',{ascending:false}).limit(50);
+  if(sigErr) throw sigErr;
+  $('signals').innerHTML=signals?.length?signals.map(s=>`<article class="signal"><div class="signalhead"><strong>${escapeHtml(s.symbol||'—')} · ${escapeHtml(s.market||'')}</strong><span class="${s.direction==='BUY'?'buy':'sell'}">${s.direction==='BUY'?'شراء BUY':'بيع SELL'}</span></div><p>الدخول: ${escapeHtml(s.entry_price??'—')} · وقف الخسارة: ${escapeHtml(s.stop_loss??'—')} · الهدف: ${escapeHtml(s.take_profit??'—')}</p>${s.notes?`<p>${escapeHtml(s.notes)}</p>`:''}<div class="small">${s.created_at?new Date(s.created_at).toLocaleString('ar'):''}</div></article>`).join(''):'<p>لا توجد إشارات منشورة حالياً.</p>';
+}
+function escapeHtml(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('signupBtn').addEventListener('click',async()=>{if(!configured)return;try{const email=val('email'),password=val('password');if(!email||password.length<8)throw Error('أدخل البريد وكلمة مرور من 8 أحرف على الأقل.');const {error}=await supabase.auth.signUp({email,password});if(error)throw error;notice('تم إنشاء الطلب. إذا طُلب تأكيد البريد، افتح رسالة التأكيد ثم سجّل الدخول.');}catch(e){notice(e.message,true);}});
+$('loginBtn').addEventListener('click',async()=>{if(!configured)return;try{const {error}=await supabase.auth.signInWithPassword({email:val('email'),password:val('password')});if(error)throw error;await refresh();notice('تم تسجيل الدخول.');}catch(e){notice(e.message,true);}});
+$('logoutBtn').addEventListener('click',async()=>{try{await supabase.auth.signOut();await refresh();notice('تم تسجيل الخروج.');}catch(e){notice(e.message,true);}});
+$('requestBtn').addEventListener('click',async()=>{try{if(!currentUser)throw Error('سجّل الدخول أولاً.');const {error}=await supabase.from('memberships').insert({user_id:currentUser.id,status:'pending',expires_at:null});if(error)throw error;await refresh();notice('تم إرسال طلب الاشتراك. تنتظر موافقة الإدارة.');}catch(e){notice(e.message,true);}});
+$('addSignalBtn').addEventListener('click',async()=>{try{if(!currentUser)throw Error('سجّل الدخول أولاً.');const symbol=val('symbol');if(!symbol)throw Error('أدخل رمز السوق.');const num=id=>val(id)===''?null:Number(val(id));const {error}=await supabase.from('trading_signals').insert({market:val('market'),symbol,direction:val('direction'),entry_price:num('entry'),stop_loss:num('sl'),take_profit:num('tp'),notes:val('notes')||null});if(error)throw error;notice('تم نشر الإشارة.');await refresh();}catch(e){notice(e.message,true);}});
+if(configured){supabase.auth.onAuthStateChange(()=>{setTimeout(()=>refresh().catch(e=>notice(e.message,true)),0)});refresh().catch(e=>notice('تعذر تحميل الحساب: '+e.message,true));}
 </script>
 </body>
 </html>
