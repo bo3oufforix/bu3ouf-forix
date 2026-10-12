@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111012">
+<title>bu3ouf forix | Market Signals</title>
+<style>
+:root {
+  --bg:#111012; --panel:#1c191b; --wine:#761c29;
+  --cream:#f4eee5; --muted:#b8adb0; --line:#38282c;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--cream);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+header {
+  padding:22px 5%; display:flex; align-items:center;
+  justify-content:space-between; gap:12px; flex-wrap:wrap;
+  border-bottom:1px solid var(--line);
+}
+.brand { font-size:23px; font-weight:800; }
+.brand span { color:#c76b77; }
+nav { display:flex; gap:16px; flex-wrap:wrap; }
+a { color:var(--cream); text-decoration:none; }
+button {
+  background:var(--wine); color:white; border:1px solid #a94a57;
+  border-radius:9px; padding:11px 15px; font-size:14px;
+  cursor:pointer;
+}
+.hero { padding:60px 6% 40px; text-align:center; }
+.eyebrow { color:#d18b94; letter-spacing:2px; font-size:12px; }
+h1 { font-size:clamp(32px,7vw,58px); margin:18px 0; }
+h1 span { color:#c76b77; }
+p { color:var(--muted); line-height:1.9; }
+.hero p { max-width:620px; margin:0 auto 24px; }
+.wrap { width:90%; max-width:1100px; margin:25px auto 60px; }
+.section-title { font-size:23px; margin:38px 0 18px; }
+.grid {
+ display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:14px;
+}
+.card {
+ background:var(--panel); border:1px solid var(--line);
+ border-radius:14px; padding:20px;
+}
+.label { color:var(--muted); font-size:13px; }
+.value { font-size:22px; font-weight:750; margin-top:12px; }
+.tag {
+ display:inline-block; color:#e8b7bd; background:#412027;
+ border-radius:6px; padding:5px 8px; font-size:11px;
+}
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th,td { padding:14px 8px; text-align:right; border-bottom:1px solid var(--line); }
+th { color:#d18b94; }
+.notice { border-right:3px solid #c76b77; margin-top:18px; padding:12px; }
+footer { text-align:center; padding:28px; border-top:1px solid var(--line); }
+[dir="ltr"] th,[dir="ltr"] td { text-align:left; }
+@media(max-width:480px) {
+ header { padding:18px 5%; }
+ nav { gap:12px; font-size:13px; }
+ .hero { padding-top:42px; }
+ th,td { padding:12px 4px; font-size:12px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">bu3ouf <span>forix</span></div>
+  <nav>
+    <a href="#markets" data-en="Markets" data-ar="الأسواق">الأسواق</a>
+    <a href="#signals" data-en="Signals" data-ar="الإشارات">الإشارات</a>
+    <a href="#about" data-en="About" data-ar="عن المنصة">عن المنصة</a>
+  </nav>
+  <button id="lang" type="button">English</button>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">MARKET ANALYSIS • TRADING SIGNALS</div>
+  <h1 data-ar="رؤيتك للسوق تبدأ من <span>هنا</span>"
+       data-en="Your market vision starts <span>here</span>">
+    رؤيتك للسوق تبدأ من <span>هنا</span>
+  </h1>
+  <p data-ar="منصة لتحليل الأسواق المالية ومتابعة إشارات التداول. نعمل على ربط بيانات السوق الحقيقية بمحرك إشارات قابل للاختبار."
+     data-en="A platform for financial market analysis and trading signals. We are building a connection to real market data and a testable signal engine.">
+    منصة لتحليل الأسواق المالية ومتابعة إشارات التداول. نعمل على ربط بيانات السوق الحقيقية بمحرك إشارات قابل للاختبار.
+  </p>
+  <a href="#markets"><button data-ar="استكشف المنصة" data-en="Explore platform">استكشف المنصة</button></a>
+</section>
+
+<main class="wrap">
+  <div class="section-title" id="markets" data-ar="الأسواق التي نتابعها" data-en="Markets we follow">الأسواق التي نتابعها</div>
+  <div class="grid">
+    <div class="card"><div class="label">CRYPTO</div><div class="value">₿</div><p data-ar="العملات الرقمية" data-en="Cryptocurrencies">العملات الرقمية</p></div>
+    <div class="card"><div class="label">FOREX</div><div class="value">€ / $</div><p data-ar="أزواج العملات" data-en="Currency pairs">أزواج العملات</p></div>
+    <div class="card"><div class="label">GOLD</div><div class="value">Au</div><p data-ar="الذهب والسلع" data-en="Gold & commodities">الذهب والسلع</p></div>
+    <div class="card"><div class="label">STOCKS</div><div class="value">↗</div><p data-ar="الأسهم والمؤشرات" data-en="Stocks & indices">الأسهم والمؤشرات</p></div>
+  </div>
+
+  <div class="section-title" data-ar="نظرة على الإشارات" data-en="Signal overview">نظرة على الإشارات</div>
+  <div class="card" id="signals">
+    <span class="tag" data-ar="واجهة تجريبية" data-en="DEMO INTERFACE">واجهة تجريبية</span>
+    <p data-ar="لم يتم ربط بيانات السوق بعد. الأرقام التالية أمثلة شكلية وليست أسعاراً حقيقية أو توصيات تداول."
+       data-en="Market data is not connected yet. The following figures are illustrative, not live prices or trading recommendations.">
+       لم يتم ربط بيانات السوق بعد. الأرقام التالية أمثلة شكلية وليست أسعاراً حقيقية أو توصيات تداول.
+    </p>
+    <table>
+      <thead><tr>
+        <th data-ar="الأصل" data-en="Asset">الأصل</th>
+        <th data-ar="السوق" data-en="Market">السوق</th>
+        <th data-ar="الحالة" data-en="Status">الحالة</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>BTC/USD</td><td>Crypto</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
+        <tr><td>EUR/USD</td><td>Forex</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
+        <tr><td>XAU/USD</td><td>Gold</td><td data-ar="بانتظار البيانات" data-en="Awaiting data">بانتظار البيانات</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title" id="about" data-ar="عن bu3ouf forix" data-en="About bu3ouf forix">عن bu3ouf forix</div>
+  <div class="card">
+    <p data-ar="هدفنا بناء منصة واضحة لتحليل الأسواق وعرض إشارات قابلة للتحقق، مع توثيق النتائج والمخاطر. لا نضمن الأرباح ولا نعرض المحاكاة على أنها تداول حقيقي."
+       data-en="Our goal is a transparent platform for market analysis and verifiable signals, with documented results and risk disclosure. Profits are not guaranteed, and simulations are never presented as live trading.">
+       هدفنا بناء منصة واضحة لتحليل الأسواق وعرض إشارات قابلة للتحقق، مع توثيق النتائج والمخاطر. لا نضمن الأرباح ولا نعرض المحاكاة على أنها تداول حقيقي.
+    </p>
+    <div class="notice" data-ar="تنبيه: التداول ينطوي على مخاطر وقد يؤدي إلى خسارة رأس المال."
+         data-en="Risk notice: Trading involves risk and may result in loss of capital.">
+      تنبيه: التداول ينطوي على مخاطر وقد يؤدي إلى خسارة رأس المال.
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 bu3ouf forix · Market Signals</footer>
+
+<script>
+const langButton = document.getElementById("lang");
+let english = false;
+langButton.addEventListener("click", () => {
+  english = !english;
+  document.documentElement.lang = english ? "en" : "ar";
+  document.documentElement.dir = english ? "ltr" : "rtl";
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.innerHTML = el.dataset[english ? "en" : "ar"];
+  });
+  document.querySelectorAll("[data-ar]").forEach(el => {
+    el.innerHTML = el.dataset[english ? "en" : "ar"];
+  });
+  langButton.textContent = english ? "العربية" : "English";
+});
+</script>
+</body>
+</html>
