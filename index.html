@@ -82,7 +82,24 @@ $('logoutBtn').addEventListener('click',async()=>{
 });
 $('requestBtn').addEventListener('click',async()=>{try{if(!currentUser)throw Error('سجّل الدخول أولاً.');const {error}=await supabase.from('memberships').insert({user_id:currentUser.id,status:'pending',expires_at:null});if(error)throw error;await refresh();notice('تم إرسال طلب الاشتراك. تنتظر موافقة الإدارة.');}catch(e){notice(e.message,true);}});
 $('addSignalBtn').addEventListener('click',async()=>{try{if(!currentUser)throw Error('سجّل الدخول أولاً.');const symbol=val('symbol');if(!symbol)throw Error('أدخل رمز السوق.');const num=id=>val(id)===''?null:Number(val(id));const {error}=await supabase.from('trading_signals').insert({market:val('market'),symbol,direction:val('direction'),entry_price:num('entry'),stop_loss:num('sl'),take_profit:num('tp'),notes:val('notes')||null});if(error)throw error;notice('تم نشر الإشارة.');await refresh();}catch(e){notice(e.message,true);}});
-if(configured){supabase.auth.onAuthStateChange(()=>{setTimeout(()=>refresh().catch(e=>notice(e.message,true)),0)});refresh().catch(e=>notice('تعذر تحميل الحساب: '+e.message,true));}
+
+if (configured) {
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT' || !session?.user) {
+      currentUser = null;
+      show('authPanel', true);
+      show('memberPanel', false);
+      show('adminPanel', false);
+      show('logoutBtn', false);
+      $('accountStatus').textContent = '';
+      $('signals').innerHTML = '<p>سجّل الدخول وفعّل الاشتراك لعرض الإشارات.</p>';
+      return;
+    }
+    setTimeout(() => refresh().catch(e => notice('تعذر تحميل الحساب: ' + e.message, true)), 0);
+  });
+  refresh().catch(e => notice('تعذر تحميل الحساب: ' + e.message, true));
+}
+
 </script>
 </body>
 </html>
