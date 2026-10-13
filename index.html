@@ -47,9 +47,18 @@ async function ensureProfile(user){
 }
 async function refresh(){
   
+  
   const { data: { session }, error } = await supabase.auth.getSession();
-  if (error) throw error;
+  if (error) {
+    currentUser = null;
+    show('authPanel', true);
+    show('memberPanel', false);
+    show('adminPanel', false);
+    show('logoutBtn', false);
+    return;
+  }
   const user = session?.user ?? null;
+
 
   currentUser=user;
   show('authPanel',!user);show('memberPanel',!!user);show('logoutBtn',!!user);
